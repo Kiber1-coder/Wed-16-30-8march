@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="card" id="gameCard">
+      <h1 class="title-animation">С 8 Марта!</h1>
+      <img src="image.png" alt="Праздничная картинка" class="image-animation" />
+
+      <!-- Квест-игра -->
+      <div id="gameContainer">
+        <div id="questionBlock">
+          <p id="question">Что больше всего любят получать женщины 8 Марта?</p>
+          <div id="answers">
+            <button class="answer-btn" onclick="checkAnswer('flowers')">
+              🌷 Цветы
+            </button>
+            <button class="answer-btn" onclick="checkAnswer('perfume')">
+              🌸 Духи
+            </button>
+            <button class="answer-btn" onclick="checkAnswer('chocolate')">
+              🍫 Шоколад
+            </button>
+            <button class="answer-btn" onclick="checkAnswer('attention')">
+              💝 Внимание
+            </button>
+          </div>
+          <p id="hint"></p>
+        </div>
+
+        <div id="congratsBlock" style="display: none">
+          <div class="confetti"></div>
+          <div class="congrats-message">
+            <h2>🎉 Правильно! 🎉</h2>
+            <p class="poem">
+              Мама милая, родная, С 8 Марта поздравляю!<br />
+              Пусть весна подарит счастье, Свет, любовь и море ласки.<br />
+              Пусть сбываются мечты, Будут радостными дни,<br />
+              А в душе — всегда весна, Ты прекраснее всех всегда!<br />
+              С 8 Марта, мамочка родная, Пусть цветёт душа, как майский сад.<br />
+              Я люблю тебя, ты знаешь, Ты мой самый лучший клад!<br />
+              Тебе, мама, в день весенний Шлю стихи и тёплый свет.<br />
+              Ты — моё вдохновенье, Ты — мой главный в жизни след.<br />
+              Пусть глаза сияют ярко, Сердце полнится добром,<br />
+              А в душе царит подарок — Счастье, мир и тёплый дом!
+            </p>
+            <button class="reset-btn" onclick="resetGame()">
+              🎀 Ещё раз 🎀
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

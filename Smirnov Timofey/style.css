@@ -1,0 +1,238 @@
+body {
+  background-color: rgb(118, 23, 207);
+  font-family: Arial, sans-serif;
+  padding: 40px;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  background-color: rgb(176, 35, 131);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: glow 3s infinite alternate;
+}
+
+/* Анимация заголовка */
+.title-animation {
+  animation:
+    slideIn 1.5s ease-out,
+    colorChange 3s infinite alternate;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Анимация изображения */
+.image-animation {
+  max-width: 100%;
+  border-radius: 15px;
+  animation:
+    float 3s ease-in-out infinite,
+    rotate 10s linear infinite;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+}
+
+/* Стили для игры */
+#question {
+  color: white;
+  font-size: 1.3em;
+  margin: 20px 0;
+  animation: fadeIn 2s;
+}
+
+#answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.answer-btn {
+  background-color: rgb(118, 23, 207);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.answer-btn:hover {
+  transform: scale(1.05) translateY(-5px);
+  background-color: rgb(140, 45, 229);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.answer-btn:active {
+  transform: scale(0.95);
+}
+
+#hint {
+  color: #ffd700;
+  font-style: italic;
+  min-height: 25px;
+  margin-top: 20px;
+}
+
+/* Анимация для поздравления */
+.congrats-message {
+  animation: zoomIn 1s;
+  color: white;
+}
+
+.congrats-message h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.poem {
+  line-height: 1.8;
+  margin: 30px 0;
+  background-color: rgba(118, 23, 207, 0.3);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.reset-btn {
+  background-color: rgb(118, 23, 207);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.reset-btn:hover {
+  transform: scale(1.1);
+  background-color: rgb(140, 45, 229);
+}
+
+/* Анимация конфетти */
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  animation: confetti 5s ease-in-out forwards;
+  background:
+    radial-gradient(circle at 10% 30%, #ff69b4, transparent 20%),
+    radial-gradient(circle at 90% 70%, #ffd700, transparent 25%),
+    radial-gradient(circle at 30% 80%, #ff1493, transparent 30%),
+    radial-gradient(circle at 70% 20%, #ffff00, transparent 35%),
+    radial-gradient(circle at 50% 50%, #ff69b4, transparent 40%);
+  opacity: 0.5;
+  z-index: 1000;
+}
+
+/* Анимации */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes colorChange {
+  from {
+    color: rgb(255, 255, 255);
+  }
+  to {
+    color: rgb(255, 215, 0);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+  }
+  to {
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.5);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100%) rotate(720deg);
+    opacity: 0;
+  }
+}
