@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="card" id="gameCard">
+      <h1 class="title-animation">C 8 Марта!</h1>
+      <img src="image.png" alt="Праздничная картинка" class="image-animation" />
+
+      <!-- Начальное сообщение (по умолчанию скрыто) -->
+      <div id="initialMessage" class="message">
+        <p>
+          Любимая бабушка! 🌷 Поздравляю тебя с 8 Марта! 💕 Желаю крепкого
+          здоровья, море улыбок и самого тёплого весеннего настроения ☀️. Пусть
+          каждый день дарит радость и вдохновение! 🌸 Ты у меня самая лучшая! ❤️
+          С любовью, твоя внучка Лара 😘🎁
+        </p>
+      </div>
+
+      <!-- Квест-игра -->
+      <div id="gameArea">
+        <h2>Найди сюрприз! 🎁</h2>
+        <p>Нажми на правильный цветок, чтобы получить поздравление:</p>
+        <div class="flowers-container">
+          <div class="flower" data-flower="1" onclick="checkFlower(1)">🌷</div>
+          <div class="flower" data-flower="2" onclick="checkFlower(2)">🌻</div>
+          <div class="flower" data-flower="3" onclick="checkFlower(3)">🌸</div>
+        </div>
+        <p id="gameHint">Подсказка: самый весенний цветок</p>
+      </div>
+
+      <!-- Секретное сообщение (появляется после победы) -->
+      <div id="secretMessage" class="message hidden">
+        <p class="secret-text">
+          🎉 СЮРПРИЗ! 🎉<br /><br />
+          Я приготовила для тебя ещё одно поздравление:<br />
+          "Ты самый чудесный человек на свете! Пусть весна подарит много тёплых
+          дней и приятных сюрпризов!"<br /><br />
+          🌷❤️ С любовью, Лара ❤️🌷
+        </p>
+        <button class="reset-button" onclick="resetGame()">
+          Сыграть ещё раз
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Правильный цветок (самый весенний - тюльпан)
+      const CORRECT_FLOWER = 1;
+
+      // Элементы страницы
+      const gameArea = document.getElementById("gameArea");
+      const initialMessage = document.getElementById("initialMessage");
+      const secretMessage = document.getElementById("secretMessage");
+      const gameHint = document.getElementById("gameHint");
+
+      // Функция проверки выбранного цветка
+      function checkFlower(flowerNumber) {
+        const flowers = document.querySelectorAll(".flower");
+
+        if (flowerNumber === CORRECT_FLOWER) {
+          // Победа!
+          gameArea.classList.add("hidden");
+          initialMessage.classList.add("hidden");
+          secretMessage.classList.remove("hidden");
+
+          // Добавляем эффект конфетти (простую анимацию)
+          createConfetti();
+        } else {
+          // Неправильный выбор
+          gameHint.textContent = "❌ Попробуй другой цветок! ❌";
+          gameHint.style.color = "#ff6b6b";
+
+          // Анимация для неправильного цветка
+          flowers[flowerNumber - 1].style.transform = "scale(0.9)";
+          setTimeout(() => {
+            flowers[flowerNumber - 1].style.transform = "scale(1)";
+          }, 200);
+        }
+      }
+
+      // Функция создания конфетти
+      function createConfetti() {
+        for (let i = 0; i < 30; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.animationDelay = Math.random() * 2 + "s";
+          confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+          document.body.appendChild(confetti);
+
+          // Удаляем конфетти через 4 секунды
+          setTimeout(() => {
+            confetti.remove();
+          }, 4000);
+        }
+      }
+
+      // Сброс игры
+      function resetGame() {
+        gameArea.classList.remove("hidden");
+        initialMessage.classList.remove("hidden");
+        secretMessage.classList.add("hidden");
+        gameHint.textContent = "Подсказка: самый весенний цветок";
+        gameHint.style.color = "";
+
+        // Удаляем все конфетти
+        document.querySelectorAll(".confetti").forEach((c) => c.remove());
+      }
+    </script>
+  </body>
+</html>
