@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Открытка для бабули с квестом</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="card" id="gameCard">
+        <!-- Экран 1: Поздравление (показывается сначала) -->
+        <div id="greetingScreen" class="screen active">
+            <h1 class="animated-title">С 8 Марта! 🌷</h1>
+
+            <div class="image-container">
+                <img src="cat.jpg" alt="Праздничная картинка" class="animated-image">
+                <div class="floating-hearts">
+                    <span>❤️</span><span>🌷</span><span>🌸</span><span>💐</span><span>🌞</span>
+                </div>
+            </div>
+
+            <p class="animated-text">Любимая бабуля! 🌷 Поздравляю тебя с 8 Марта! 🌞
+            Желаю крепкого здоровья, улыбок и весеннего настроения! 🌸 Пусть каждый день дарит тебе тепло и радость. ❤️ Очень тебя люблю!
+            Твой внук Петя 👦🏻🎁</p>
+
+            <button class="quest-btn" onclick="startQuest()">🎁 Открыть подарок-квест 🎁</button>
+        </div>
+
+        <!-- Экран 2: Квест-игра -->
+        <div id="questScreen" class="screen">
+            <h2>🌸 Квест для бабули 🌸</h2>
+
+            <div id="question1" class="question active">
+                <p>Вопрос 1: Мой любимый цветок?</p>
+                <div class="answers">
+                    <button class="answer-btn" onclick="checkAnswer(1, 'роза')">🌹 Роза</button>
+                    <button class="answer-btn" onclick="checkAnswer(1, 'тюльпан')">🌷 Тюльпан</button>
+                    <button class="answer-btn" onclick="checkAnswer(1, 'ромашка')">🌼 Ромашка</button>
+                </div>
+            </div>
+
+            <div id="question2" class="question">
+                <p>Вопрос 2: Что я люблю делать с бабулей?</p>
+                <div class="answers">
+                    <button class="answer-btn" onclick="checkAnswer(2, 'чай')">☕ Пить чай с пирожками</button>
+                    <button class="answer-btn" onclick="checkAnswer(2, 'гулять')">🚶 Гулять в парке</button>
+                    <button class="answer-btn" onclick="checkAnswer(2, 'смотреть')">📺 Смотреть телевизор</button>
+                </div>
+            </div>
+
+            <div id="question3" class="question">
+                <p>Вопрос 3: Какое у меня любимое занятие?</p>
+                <div class="answers">
+                    <button class="answer-btn" onclick="checkAnswer(3, 'рисовать')">🎨 Рисовать</button>
+                    <button class="answer-btn" onclick="checkAnswer(3, 'играть')">🎮 Играть в компьютер</button>
+                    <button class="answer-btn" onclick="checkAnswer(3, 'читать')">📚 Читать книги</button>
+                </div>
+            </div>
+
+            <div id="congratsMessage" class="hidden">
+                <h3>🎉 ПОЗДРАВЛЯЮ! 🎉</h3>
+                <p class="special-text">Ты прошла квест! Вот тебе особенное поздравление:</p>
+                <p class="poem">
+                    Бабуля милая, родная,<br>
+                    С 8 Марта поздравляю!<br>
+                    Ты лучше всех на свете,<br>
+                    Пусть счастье, как букет, цветет!<br>
+                    Твой Петя 👦🏻❤️
+                </p>
+                <button class="quest-btn" onclick="restartCard()">🎀 Посмотреть открытку сначала 🎀</button>
+            </div>
+
+            <div id="tryAgainMessage" class="hidden">
+                <p>❌ Попробуй еще раз! ❌</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

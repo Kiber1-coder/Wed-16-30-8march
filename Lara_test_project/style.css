@@ -1,0 +1,214 @@
+/* Настройки всего фона страницы */
+body {
+  background-color: #ffe6f2; /* Нежно-розовый цвет фона страницы */
+  font-family: 'Arial', sans-serif; /* Понятный и красивый шрифт */
+  padding: 40px; /* Отступы со всех сторон */
+}
+
+/* Настройки белой карточки-открытки */
+.card {
+  background-color: white; /* Цвет самой открытки */
+  max-width: 450px; /* Максимальная ширина открытки */
+  margin: 0 auto; /* Эта команда ставит открытку ровно по центру */
+  padding: 30px; /* Отступы внутри открытки, чтобы тексту не было тесно */
+  border-radius: 25px; /* Закругляем углы карточки */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Добавляем красивую тень */
+  text-align: center; /* Выравниваем всё содержимое по центру */
+}
+
+/* Настройки главного заголовка */
+h1 {
+  color: #ff1493; /* Ярко-розовый цвет (DeepPink) */
+  font-size: 32px; /* Размер букв */
+}
+
+/* Настройки картинки */
+img {
+  max-width: 100%; /* Картинка не вылезет за края открытки */
+  border-radius: 15px; /* Немного закругляем углы самой картинки */
+  border: 5px solid #ffb6c1; /* Добавляем светло-розовую рамочку */
+  margin-top: 10px; /* Отступ сверху */
+  transition: transform 0.3s; /* Готовим картинку к плавной анимации */
+}
+
+/* МАГИЯ: Анимация при наведении мышки */
+img:hover {
+  transform: scale(1.08); /* Картинка увеличится, когда на нее наведут курсор */
+}
+
+/* Настройки текста поздравления */
+p {
+  color: #444444; /* Темно-серый цвет для текста (черный слишком резкий) */
+  font-size: 20px; /* Размер текста */
+  line-height: 1.5; /* Расстояние между строками, чтобы было удобно читать */
+  margin-top: 20px; /* Отступ от картинки */
+}
+
+/* ДОБАВИТЬ В КОНЕЦ ФАЙЛА */
+
+/* Анимации для заголовка */
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 5px #ffb6c1; }
+  50% { text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4; }
+  100% { text-shadow: 0 0 5px #ffb6c1; }
+}
+
+.animated-title {
+  animation: titleGlow 2s infinite;
+}
+
+/* Анимация для изображения */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animated-image {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Плавающие сердечки */
+.floating-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-hearts span {
+  position: absolute;
+  font-size: 24px;
+  animation: floatHeart 3s infinite;
+}
+
+.floating-hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-hearts span:nth-child(2) { left: 30%; animation-delay: 0.5s; }
+.floating-hearts span:nth-child(3) { left: 50%; animation-delay: 1s; }
+.floating-hearts span:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+.floating-hearts span:nth-child(5) { left: 90%; animation-delay: 2s; }
+
+@keyframes floatHeart {
+  0% { top: 100%; opacity: 1; }
+  100% { top: -20%; opacity: 0; }
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Стили для кнопки квеста */
+.quest-btn {
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid #ffb6c1;
+}
+
+.quest-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+}
+
+/* Стили для экранов */
+.screen {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.screen.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Стили для вопросов */
+.question {
+  display: none;
+  margin: 20px 0;
+}
+
+.question.active {
+  display: block;
+}
+
+.answer-btn {
+  background: #ffe6f2;
+  border: 2px solid #ffb6c1;
+  color: #444;
+  padding: 12px 24px;
+  margin: 8px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 80%;
+  max-width: 300px;
+}
+
+.answer-btn:hover {
+  background: #ffb6c1;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
+}
+
+/* Скрытые элементы */
+.hidden {
+  display: none;
+}
+
+/* Стили для поздравления */
+.special-text {
+  color: #ff1493;
+  font-size: 22px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.poem {
+  background: #ffe6f2;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #ffb6c1;
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* Анимация для текста поздравления */
+.animated-text {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  color: #ff1493;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
