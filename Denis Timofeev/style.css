@@ -1,0 +1,22 @@
+body {
+  background-color: fuchsia;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+  margin: 0;
+}
+
+.card {
+  background-color: rgb(255, 171, 255);
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.card img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 15px;
+}
